@@ -3,4 +3,11 @@ const db = require("../utils/database");
 
 const models = initModels(db);
 
-module.exports = models;
+const { users, messages, participants, conversations } = models;
+
+module.exports = {
+  users,
+  messages,
+  participants,
+  conversations,
+};
