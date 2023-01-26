@@ -26,6 +26,33 @@ module.exports = (sequelize, DataTypes) => {
  *         password:
  *           type: string
  *           example: 1234
+ *     login:
+ *       type: object
+ *       properties:
+ *         email:
+ *           type: string
+ *           example: ian.rosas@academlo.com
+ *         password:
+ *           type: string
+ *           example: 1234
+ *     loginResponse:
+ *       type: object
+ *       properties:
+ *         firstname:
+ *           type: string,
+ *           example: Ian
+ *         lastname:
+ *           type: string
+ *           example: Rosas
+ *         id:
+ *           type: int
+ *           example: 2
+ *         email:
+ *           type: string
+ *           example: ian.rosas@academlo.com
+ *         token:
+ *           type: string
+ *           example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
  */
 
 class users extends Sequelize.Model {
