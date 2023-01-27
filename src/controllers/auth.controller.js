@@ -1,7 +1,7 @@
 const AuthServices = require("../services/auth.services");
 const transporter = require("../utils/mailer");
 
-const register = async (req, res) => {
+const register = async (req, res, next) => {
   try {
     const user = req.body;
     const result = await AuthServices.register(user);
@@ -17,11 +17,11 @@ const register = async (req, res) => {
       res.status(400).json({ message: "somethign wrong" });
     }
   } catch (error) {
-    res.status(400).json(error.message);
+    next(error);
   }
 };
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     if (!email) {
@@ -51,7 +51,7 @@ const login = async (req, res) => {
     // usuario no encontrado
     // contraseña incorrecta
   } catch (error) {
-    res.status(400).json({ message: "Something wrong" });
+    next({ message: "Something wrong" });
   }
 };
 
